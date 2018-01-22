@@ -1,0 +1,25 @@
+env:
+  es6: true
+  node: true
+  jest: true
+extends: 'standard'
+parserOptions:
+  sourceType: script
+rules:
+  indent:
+    - error
+    - 4
+  linebreak-style:
+    - error
+    - unix
+  comma-dangle:
+    - 1
+    - always-multiline
+  no-console:
+    - error
+  operator-linebreak:
+    - error
+    - before
+  strict:
+    - warn
+    - global

@@ -1,0 +1,13 @@
+.DS_Store
+coverage/
+node_modules/
+docker-entrypoint-initdb.d
+.azk
+*.log
+logs
+tmp
+\.env
+*.todo
+*.tmp
+.vscode
+reports/
