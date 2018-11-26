@@ -20,22 +20,6 @@ module.exports = class extends Generator {
     });
   }
 
-  // prompting() {
-  //   var done = this.async();
-  //   this.prompt([{
-  //     type    : 'input',
-  //     name    : 'reviewed',
-  //     message : 'Have you peer reviewed your idea of the RESTful resource you are about to create.\n',
-  //     default : 'n' 
-  //   }], function (answers) {
-  //     if(answers.reviewed.toLowerCase().indexOf('y') === -1 ) {
-  //       this.log('Please peer review your RESTful resource, write the spec in RAML and show it to your test engineers. It may save you some time ;D')
-  //     } else {
-  //       done()
-  //     }
-  //   }.bind(this));
-  // }
-
   writing() {
     var resourceName = this.arguments[0];
 
@@ -46,7 +30,8 @@ module.exports = class extends Generator {
       this.destinationPath('src/resources/' + resourceName + '/index.js'),{
         process :  function (input) {
             var output = input.toString('utf-8')
-                              .replace('{{RESOURCE_NAME}}', resourceName);           
+                              .replace('{{RESOURCE_NAME}}', resourceName)
+                              .replace('{{RESOURCE_NAME}}', resourceName);        
             return output;
           }
       }

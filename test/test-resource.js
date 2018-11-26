@@ -13,9 +13,6 @@ describe('mycujoo-api:resource', function () {
         fs.copyFileSync(path.join(__dirname, './temp-test'), dir)
       })
       .withOptions({ 'skip-install': true })
-      .withPrompts({
-        reviewed: 'y',
-      })
       .then(() => {
         assert.file([
           'src/resources/test_resource_name/index.js',
@@ -25,14 +22,14 @@ describe('mycujoo-api:resource', function () {
       })
   });
 
-  // it('replaces {{RESOURCE_NAME}} in spec file with promped value', function () {
-  //     var rootController = fs.readFileSync(path.join(os.tmpdir(), './temp-test') + '/src/resources/test_resource_name/test_resource_name.spec.js', 'utf-8');
-  //     assert(rootController.indexOf('test_resource_name') !== -1, true);
-  // });
+  it('replaces {{RESOURCE_NAME}} in spec file with promped value', function () {
+      var rootController = fs.readFileSync(path.join(os.tmpdir(), './temp-test') + '/src/resources/test_resource_name/test_resource_name.spec.js', 'utf-8');
+      assert(rootController.indexOf('test_resource_name') !== -1, true);
+  });
 
 
-  // it('replaces {{RESOURCE_NAME}} in index file with promped value', function () {
-  //     var rootController = fs.readFileSync(path.join(os.tmpdir(), './temp-test') + '/src/resources/test_resource_name/index.js', 'utf-8');
-  //     assert(rootController.indexOf('test_resource_name') !== -1, true);
-  // });
+  it('replaces {{RESOURCE_NAME}} in index file with promped value', function () {
+      var rootController = fs.readFileSync(path.join(os.tmpdir(), './temp-test') + '/src/resources/test_resource_name/index.js', 'utf-8');
+      assert(rootController.indexOf('test_resource_name') !== -1, true);
+  });
 });

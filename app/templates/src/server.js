@@ -15,8 +15,10 @@ app.use(cors())
 app.use(convert(ping()))
 app.use(router.middleware())
 
-// Start server
-app.listen(config.get('port'))
+if (config.get('env') !== 'test') {
+    // Start server
+    app.listen(config.get('port'))
+}
 
 // Expose app
 exports = module.exports = app

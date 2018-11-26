@@ -3,10 +3,10 @@
 const app = require('../../server')
 const request = require('supertest').agent(app.listen())
 
-describe('GET /', () => {
-    it('should respond with 200', (done) => {
-        request
-            .get('/')
-            .expect(200, done)
-    })
+test('GET /root should retrieve 200', async () => {
+    const { text } = await request
+        .get('/root')
+        .expect(200)
+
+    expect(text).toBe('My app is working !')
 })

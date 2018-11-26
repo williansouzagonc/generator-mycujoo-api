@@ -38,6 +38,16 @@ module.exports = class extends Generator {
     );
 
     this.fs.copy(
+      this.templatePath('.gitignore'),
+      this.destinationPath('.gitignore')
+    );
+
+    this.fs.copy(
+      this.templatePath('.env_sample'),
+      this.destinationPath('.env_sample')
+    );
+
+    this.fs.copy(
       this.templatePath('.eslintrc.yml'),
       this.destinationPath('.eslintrc.yml')
     );
